@@ -1228,25 +1228,49 @@ using namespace std;
 //===chuong trinh chinh===
 int main()
 {
+    //Khai bao bien
+    char hoTen[36];
+    char *p,*ho,*tenDem,*ten;
+    int num;
 
-     cout<< endl;
-     return 0;
-}
-//===dinh nghia ham===
-char *layTen(char *s)
-{
-    char *p=s+strlen(s)-1;
+    cout<<"Nhập vào họ tên: ";
+    scanf(" ");cin.get(hoTen,sizeof(hoTen));
 
-    //Dò tìm kí tự cách
-    while(*p!=' ') p--;
-    //Cho p trỏ vào ký tự đầu tiên
+    //Cho p tro toi ky tu cuoi cung cua ho ten
+    p = hoTen + strlen(hoTen) - 1;
+
+    //Cho p tro toi ky tu dau tien cua ten
+    while(*p != ' ') p--;
     p++;
-    //Trả về tên
-    return p;
+
+    //Tao bien xau dong ten
+    ten = new char[strlen(p)+1];
+
+    //Copy ten
+    strcpy(ten,p);
+
+    //Dem so ky tu cua ho
+    num = 0;
+    p = hoTen;
+    while(*p != ' ')
+    {
+        num++; p++;
+    }
+
+    //Tao bien xau dong ho
+    ho = new char[num+1];
+
+    //Copy num ky tu cua ho
+    strncpy(ho,hoTen,num);
+
+    //Them ky tu rong vao ho
+    ho[num] = '\0';
+
+    cout<<"Tên: "<<ten;
+    cout<<"\nHọ: "<<ho;
+
+    cout<<endl;
+    return 0;
 }
-//----------------------------
-char *layHoDem(char *HoDem, char *HoTen)
-{
-    strncpy(HoDem, HoTen, strlen(HoTen)-strlen(layTen(HoTen)-1);
-    return HoDem;
-} */
+//===dinh nghia ham=== */
+
